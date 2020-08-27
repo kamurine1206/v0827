@@ -36,10 +36,42 @@ namespace v0827
             label2.Left = mp.X;
             label2.Top = mp.Y;
             label2.Text = ""+mp.X+","+mp.Y;
+            label3.Left += vx;
+            label3.Top += vy;
+
+            if (label3.Left < 0)
+            {
+                vx = Math.Abs(vx) * 11 / 10;
+            }
+            if (label3.Top < 0)
+            {
+                vy = Math.Abs(vy) * 11 / 10;
+            }
+            if (label3.Right >= ClientSize.Width)
+            {
+                vx = -Math.Abs(vx) * 11 / 10;
+            }
+            if (label3.Top >= ClientSize.Height)
+            {
+                vy = -Math.Abs(vy) * 11 / 10;
+            }
+            if ((mp.X >= label3.Left) && (mp.X < label3.Right) && (mp.Y >= label3.Top) && (mp.Y < label3.Bottom))
+            {
+                timer1.Enabled = false;
+            }
+
+
         }
 
         private void label2_Click(object sender, EventArgs e)
         {
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            vx = 0;
+            vy = 0;
+
         }
     }
 }
