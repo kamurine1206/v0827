@@ -13,12 +13,17 @@ namespace v0827
     public partial class Form1 : Form
     {
 
-        int vx = -10;
-        int vy = -10;
+        int vx = rand.Next(-10,11);
+        int vy = rand.Next(-10,11);
+        int a = Math.Abs(-10);
+        static Random rand = new Random();
 
         public Form1()
         {
             InitializeComponent();
+
+            label3.Left = rand.Next(ClientSize.Width - label3.Width);
+            label3.Top = rand.Next(ClientSize.Height - label3.Height);
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -59,7 +64,6 @@ namespace v0827
             {
                 timer1.Enabled = false;
             }
-
 
         }
 
